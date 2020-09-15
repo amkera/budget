@@ -26,11 +26,10 @@ addUserForm.addEventListener("submit", (e) => {
     },
     body: JSON.stringify({name: userName})
   })
-  .then(res => res.json())
-  .then(newUser => console.log(newUser));
+    .then(res => res.json())
+    .then(newUser => renderUser(newUser))
+    main.append(newUser)
 });
-
-
 
 
 const renderUser = (userHash) => {
