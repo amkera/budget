@@ -47,7 +47,7 @@ const renderUser = (userHash) => {
   //<button data-user-id="1">Add Expense</button>
   //when I click this button, something needs to happen. a click event listener
 
-  //button.addEventListener("click", createExpense);
+  button.addEventListener("click", createExpense);
   //createExpense here corresponds to the #create method in the controller
   div.appendChild(p);
   div.appendChild(button);
@@ -55,6 +55,10 @@ const renderUser = (userHash) => {
   //This is what puts these elements onto the page.
   main.appendChild(div);
   userHash.expenses.forEach(expense => renderExpense(expense))
+}
+
+const createExpense = (expense) => {
+  const littleDiv = document.createElement("div");
 }
 
 
