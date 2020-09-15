@@ -59,8 +59,6 @@ const renderUser = (userHash) => {
 }
 
 
-
-
 //FOR EACH EXPENSE, there should be a 'delete expense button'
 const renderExpense = (expense) => {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);

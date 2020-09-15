@@ -11,4 +11,16 @@ class UsersController < ApplicationController
     render json: user, include: [:expense]
   end
 
+  def create
+    user = User.create(user_params)
+    render json: user
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name)
+  end
+
+
 end
