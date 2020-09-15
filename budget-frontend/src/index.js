@@ -60,31 +60,31 @@ const renderExpense = (expense) => {
 }
 
 
-
-const createExpense = (e) => {
-  e.preventDefault();
-  //prevent refreshing of the page
-  const configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    //body: JSON.stringify({name: e.target.dataset.name})
-  }
-  fetch(EXPENSES_URL, configObj)
-    .then(res => res.json())
-    .then(json => {
-      if (json.message) {
-        alert(json.message)
-      } else {
-        renderExpense(json)
-      }
-    })
-}
-
-
-
-const deleteExpense = (e) => {
-  e.preventDefault()
-}
+// 
+// const createExpense = (e) => {
+//   e.preventDefault();
+//   //prevent refreshing of the page
+//   const configObj = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Accept": "application/json"
+//     },
+//     //body: JSON.stringify({name: e.target.dataset.name})
+//   }
+//   fetch(EXPENSES_URL, configObj)
+//     .then(res => res.json())
+//     .then(json => {
+//       if (json.message) {
+//         alert(json.message)
+//       } else {
+//         renderExpense(json)
+//       }
+//     })
+// }
+//
+//
+//
+// const deleteExpense = (e) => {
+//   e.preventDefault()
+// }
