@@ -47,20 +47,26 @@ const renderUser = (userHash) => {
   //<button data-user-id="1">Add Expense</button>
   //when I click this button, something needs to happen. a click event listener
 
-  button.addEventListener("click", createExpense);
+  button.addEventListener("click", renderCreateExpenseForm);
   //createExpense here corresponds to the #create method in the controller
   div.appendChild(p);
   div.appendChild(button);
+  div.appendChild(createExpenseForm);
   div.appendChild(ul);
   //This is what puts these elements onto the page.
   main.appendChild(div);
   userHash.expenses.forEach(expense => renderExpense(expense))
 }
 
-const createExpense = (expense) => {
-  const expenseForm = document.createElement("FORM");
-  expenseForm.setAttribute("expense-id", expense.id);
+const renderCreateExpenseForm = (event) {
 
+}
+
+
+const createExpense = (expense) => {
+  event.preventDefault();
+  // const expenseForm = document.createElement("FORM");
+  // expenseForm.setAttribute("expense-id", expense.id);
 }
 
 
