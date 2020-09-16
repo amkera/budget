@@ -58,7 +58,9 @@ const renderUser = (userHash) => {
 }
 
 const createExpense = (expense) => {
-  const littleDiv = document.createElement("div");
+  const expenseForm = document.createElement("FORM");
+  expenseForm.setAttribute("expense-id", expense.id);
+
 }
 
 
