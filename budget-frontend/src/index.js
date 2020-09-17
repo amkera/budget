@@ -46,12 +46,13 @@ const renderUser = (userHash) => {
   button.innerHTML = "Create Expense"; //<button data-user-id="1">Add Expense</button>
 
   button.addEventListener("click", renderNewExpenseForm);
-  //button.addEventListener("click", createExpense{
-
+  button.addEventListener("click", (event) => {
+    event.target.hidden = true;
+  });
 
   div.appendChild(p);
   div.appendChild(button);
-  div.appendChild(ul);//This is what puts these elements on page
+  div.appendChild(ul);
   main.appendChild(div);
 
   userHash.expenses.forEach(expense => renderExpense(expense))
