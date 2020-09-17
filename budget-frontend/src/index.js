@@ -61,6 +61,7 @@ const renderUser = (userHash) => {
 const renderNewExpenseForm = (event) => {
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
+  expenseForm.setAttribute('class', event.target.dataset.userId)
 
   const label1 = document.createElement('label')
   label1.innerText = 'Add Expense Name'
@@ -78,7 +79,8 @@ const renderNewExpenseForm = (event) => {
   const formButton = document.createElement('input')
   formButton.type = 'submit'
   formButton.value = 'Add Expense'
-  formButton.setAttribute('data-user_id', event.target.dataset.userId)
+  //formButton.setAttribute('data-user_id', event.target.dataset.userId)
+  formButton.setAttribute('id', event.target.dataset.userId)
 
   const removeFormButton = document.createElement('button');
   removeFormButton.innerText = "Back"
@@ -98,22 +100,39 @@ const renderNewExpenseForm = (event) => {
   //VERY IMPORTANT FROM Z: expenseForm.addEventListener("submit"...)
 }
 
-
-const createExpense = (e) => {
+function createExpense(e) {
   e.preventDefault();
   let expenseName = e.target.name.value;
   let expenseAmount =  e.target.amount.value;
+  let users_id = e.target.className;
   fetch(EXPENSES_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
-    body: JSON.stringify({name: expenseName, amount: expenseAmount})
+    body: JSON.stringify({name: expenseName, amount: expenseAmount, user_id: users_id})
+  }).then(resp => {
+    return resp.json()
+  }).then(expense => {
+    console.log(expense)
   })
-    .then(response => response.json())
-    .then(expense => renderExpense(expense))
-};
+
+}
+//
+// const createExpense = (e) => {
+//   e.preventDefault();
+//   let expenseName = e.target.name.value;
+//   let expenseAmount =  e.target.amount.value;
+//   fetch(EXPENSES_URL, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Accept": "application/json"
+//     },
+//     body: JSON.stringify({name: expenseName, amount: expenseAmount, user_id: 1})
+//   }).then(response => response.json()).then(expense => console.log(expense))
+// };
 
 
 
