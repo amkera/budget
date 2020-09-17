@@ -27,7 +27,7 @@ addUserForm.addEventListener("submit", (e) => {
   })
     .then(res => res.json())
     .then(newUser => renderUser(newUser))
-    main.append(newUser)
+    main.append(newUser);
 });
 
 
@@ -83,7 +83,7 @@ const renderNewExpenseForm = (event) => {
   formButton.setAttribute('id', event.target.dataset.userId)
 
   const removeFormButton = document.createElement('button');
-  removeFormButton.innerText = "Back"
+  //removeFormButton.innerText = "Back"
 
   formButton.setAttribute('name', 'expenseSubmitButton')
   expenseForm.append(label1)
@@ -93,7 +93,7 @@ const renderNewExpenseForm = (event) => {
   expenseForm.append(input2)
 
   expenseForm.append(formButton)
-  expenseForm.append(removeFormButton);
+  //expenseForm.append(removeFormButton);
 
   event.target.after(expenseForm);
   expenseForm.addEventListener("submit", createExpense)
@@ -115,7 +115,7 @@ function createExpense(e) {
   }).then(resp => {
     return resp.json()
   }).then(expense => {
-    console.log(expense)
+    renderExpense(expense)
   })
 
 }
