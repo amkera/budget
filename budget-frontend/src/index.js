@@ -43,28 +43,22 @@ const renderUser = (userHash) => {
   div.setAttribute("data-id", userHash.id); //data-id="1", id of the user
   p.innerHTML = userHash.name;
   button.setAttribute("data-user-id", userHash.id);
-  button.innerHTML = "Create Expense";
-  //<button data-user-id="1">Add Expense</button>
-  //when I click this button, something needs to happen. a click event listener
-
-  button.addEventListener("click", renderCreateExpenseForm);
-  //createExpense here corresponds to the #create method in the controller
+  button.innerHTML = "Create Expense"; //<button data-user-id="1">Add Expense</button>
+  button.addEventListener("click", createExpense); //createExpense here corresponds to the #create method in the controller
   div.appendChild(p);
   div.appendChild(button);
-  div.appendChild(createExpenseForm);
-  div.appendChild(ul);
-  //This is what puts these elements onto the page.
+  div.appendChild(ul);//This is what puts these elements on page
   main.appendChild(div);
   userHash.expenses.forEach(expense => renderExpense(expense))
 }
 
-const renderCreateExpenseForm = (event) {
 
-}
-
-
-const createExpense = (expense) => {
+const createExpense = (event) => {
   event.preventDefault();
+  const expense = {
+    name: ,
+    amount:
+  }
   // const expenseForm = document.createElement("FORM");
   // expenseForm.setAttribute("expense-id", expense.id);
 }
