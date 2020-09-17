@@ -98,12 +98,25 @@ const renderNewExpenseForm = (event) => {
   //VERY IMPORTANT FROM Z: expenseForm.addEventListener("submit"...)
 }
 
-const createExpense = (event) => {
-  event.preventDefault();
 
-}
+const createExpense = (e) => {
+  e.preventDefault();
+  let expenseName = e.target.name.value;
+  let expenseAmount =  e.target.amount.value;
+  fetch(EXPENSES_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({name: expenseName, amount: expenseAmount})
+  })
+    .then(response => response.json())
+    .then(expense => renderExpense(expense))
+};
 
-//FOR EACH EXPENSE, there should be a 'delete expense button'
+
+
 const renderExpense = (expense) => {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
   const li = document.createElement("li")
