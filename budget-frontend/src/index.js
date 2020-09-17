@@ -77,7 +77,6 @@ const renderNewExpenseForm = (event) => {
   formButton.value = 'Add Expense'
   formButton.setAttribute('data-user_id', event.target.dataset.userId)
 
-
   formButton.setAttribute('name', 'expenseSubmitButton')
   expenseForm.append(label1)
   expenseForm.append(input1)
