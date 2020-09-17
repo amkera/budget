@@ -71,12 +71,17 @@ const renderNewExpenseForm = (event) => {
   const label2 = document.createElement('label')
   label2.innerText = 'Add Expense Amount'
   const input2 = document.createElement('input')
-  input2.type = 'integer'
+  input2.type = 'number'
+  input2.min = 0
+  input2.name = 'amount'
 
   const formButton = document.createElement('input')
   formButton.type = 'submit'
   formButton.value = 'Add Expense'
   formButton.setAttribute('data-user_id', event.target.dataset.userId)
+
+  const removeFormButton = document.createElement('button');
+  removeFormButton.innerText = "Back"
 
   formButton.setAttribute('name', 'expenseSubmitButton')
   expenseForm.append(label1)
@@ -86,11 +91,17 @@ const renderNewExpenseForm = (event) => {
   expenseForm.append(input2)
 
   expenseForm.append(formButton)
-  event.target.after(expenseForm);
+  expenseForm.append(removeFormButton);
 
+  event.target.after(expenseForm);
+  expenseForm.addEventListener("submit", createExpense)
   //VERY IMPORTANT FROM Z: expenseForm.addEventListener("submit"...)
 }
 
+const createExpense = (event) => {
+  event.preventDefault();
+
+}
 
 //FOR EACH EXPENSE, there should be a 'delete expense button'
 const renderExpense = (expense) => {
