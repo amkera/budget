@@ -134,6 +134,19 @@ const renderExpense = (expense) => {
   ul.appendChild(li);
 }
 
-function deleteExpense(event) {
-  debugger;
+function deleteExpense(e) {
+  e.preventDefault();
+//remove it from db
+  const configObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  }
+  fetch(`$(EXPENSES_URL)/${e.target.dataset["expenseId"]}`, configObj)
+
+  //remove it from the page
+  e.target.parentElement.remove();
+
 }
