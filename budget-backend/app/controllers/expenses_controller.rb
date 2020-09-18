@@ -15,12 +15,12 @@ class ExpensesController < ApplicationController
     render json: expense
   end
 
+  def destroy
+    expense = Expense.find(params[:id])
+    expense.destroy
+  end
 
-  #
-  # def destroy
-  #   expense = Expense.find(params[:id])
-  #   expense.destroy
-  # end
+  private
 
   def expense_params
     #params.permit(:name, :amount, :user_id)

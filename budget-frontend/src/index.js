@@ -119,22 +119,6 @@ function createExpense(e) {
   })
 
 }
-//
-// const createExpense = (e) => {
-//   e.preventDefault();
-//   let expenseName = e.target.name.value;
-//   let expenseAmount =  e.target.amount.value;
-//   fetch(EXPENSES_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Accept": "application/json"
-//     },
-//     body: JSON.stringify({name: expenseName, amount: expenseAmount, user_id: 1})
-//   }).then(response => response.json()).then(expense => console.log(expense))
-// };
-
-
 
 const renderExpense = (expense) => {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
@@ -143,8 +127,13 @@ const renderExpense = (expense) => {
   li.innerHTML = `${expense.name}: $${expense.amount} `
   button.setAttribute("button", "delete")
   button.setAttribute("data-expense-id", expense.id)
+  button.addEventListener("click", deleteExpense)
   //this is how JS knows what is being deleted, because the expense id is being set on the button
   button.innerHTML = "Delete"
   li.appendChild(button)
   ul.appendChild(li);
+}
+
+function deleteExpense(event) {
+  debugger;
 }
