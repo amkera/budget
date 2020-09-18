@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => loadUsers());
+
 
 const loadUsers = () => {
   fetch(USERS_URL)
