@@ -1,7 +1,4 @@
-
-
-
-const renderNewExpenseForm = (event) => {
+function renderNewExpenseForm(event) {
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
   expenseForm.setAttribute('class', event.target.dataset.userId)
@@ -63,7 +60,7 @@ function createExpense(e) {
 
 }
 
-const renderExpense = (expense) => {
+function renderExpense(expense) {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
   const li = document.createElement("li")
   const button = document.createElement("button")
@@ -79,7 +76,7 @@ const renderExpense = (expense) => {
 
 function deleteExpense(e) {
   e.preventDefault();
-//remove it from db
+  //remove it from db
   const configObj = {
     method: "DELETE",
     headers: {
