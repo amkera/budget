@@ -144,9 +144,7 @@ function deleteExpense(e) {
       "Accept": "application/json"
     }
   }
-  fetch(`$(EXPENSES_URL)/${e.target.dataset["expenseId"]}`, configObj)
-
+  fetch(`${EXPENSES_URL}/${e.target.dataset["expenseId"]}`, configObj)
   //remove it from the page
   e.target.parentElement.remove();
-
 }
