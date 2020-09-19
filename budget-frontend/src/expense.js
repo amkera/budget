@@ -73,6 +73,7 @@ function createExpense(e) {
 function renderExpense(expense) {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
   const li = document.createElement("li")
+  const li2 = document.createElement("li");
   const button = document.createElement("button")
   li.innerHTML = `${expense.name}: $${expense.amount} `
   button.setAttribute("button", "delete")
