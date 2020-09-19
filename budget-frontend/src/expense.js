@@ -1,3 +1,14 @@
+class Expense {
+  constructor(data) {
+    this.id = data.id
+    this.name = data.name
+    this.user_id = data.user_id
+    this.amount = data.amount
+    this.updated_at = data.updated_at
+    this.created_at = data.created_at
+  }
+}
+
 function renderNewExpenseForm(event) {
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
@@ -34,7 +45,6 @@ function renderNewExpenseForm(event) {
 
   expenseForm.append(formButton)
   //expenseForm.append(removeFormButton);
-
   event.target.after(expenseForm);
   expenseForm.addEventListener("submit", createExpense)
   //VERY IMPORTANT FROM Z: expenseForm.addEventListener("submit"...)
