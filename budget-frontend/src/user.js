@@ -1,4 +1,9 @@
-
+class User {
+  constructor(data) {
+    this.id = data.id
+    this.name = this.name
+  }
+}
 
 function loadUsers() {
   fetch(USERS_URL)
@@ -35,7 +40,6 @@ function renderUser(userHash) {
 
   div.setAttribute("class", "card"); //class="card"
   div.setAttribute("data-id", userHash.id); //data-id="1", id of the user
-
   p.innerHTML = userHash.name;
   button.setAttribute("data-user-id", userHash.id);
   button.innerHTML = "Create Expense"; //<button data-user-id="1">Add Expense</button>
