@@ -5,7 +5,7 @@ body {
   }
 
   header {
-    background-color: #4caf50;
+    background-color: #c9ada7;
     margin: 0 auto;
     height: 50px;
     text-align:center;
@@ -30,7 +30,7 @@ body {
   }
 
   div.card {
-    background-color: #eeeeee;
+    background-color: #f2e9e4;
     height: 250px;
     width: 300px;
     box-shadow: 10px 10px grey;
@@ -53,7 +53,7 @@ body {
   button {
     font-size: .65em;
     color: #fff;
-    background-color: green;
+    background-color: black;
     border-radius: 10px;
   }
 
