@@ -1,24 +1,29 @@
-# README
+README
+Description
+Budget App is an app with a Javascript frontend and Ruby on Rails API backend to track a user's expenses.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installation Instructions
+Fork and clone the repo to your local machine.
 
-Things you may want to cover:
+Change directory into budget-backend and run:
 
-* Ruby version
+$bundle install
 
-* System dependencies
+Setting up the database:
 
-* Configuration
+rake db:create
+rake db:migrate
+rake db:seed
+Start up the rails server:
 
-* Database creation
+rails s
 
-* Database initialization
+Navigate to budget-frontend
 
-* How to run the test suite
+Open the index.html file in a browser (preferably Google Chrome) by typing
+$open index.html
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Usage
+Click on Add New User to add a user to the app.
+Click on Create Expense to create an expense for the user.
+Click on Delete Expense to remove the event.
