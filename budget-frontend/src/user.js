@@ -13,6 +13,7 @@ function loadUsers() {
     })
 }
 
+
 function addUser() {
   addUserForm.addEventListener("submit", (e) => {
     e.preventDefault();
