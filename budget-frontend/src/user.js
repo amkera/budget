@@ -13,25 +13,21 @@ function loadUsers() {
     })
 }
 
-
-function addUser() {
-  addUserForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const userName = e.target.name.value;
-    fetch(USERS_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({name: userName})
-    })
-      .then(res => res.json())
-      .then(newUser => renderUser(newUser))
-      main.append(newUser);
-  });
-}
-
+addUserForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const userName = e.target.name.value;
+  fetch(USERS_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({name: userName})
+  })
+    .then(res => res.json())
+    .then(newUser => renderUser(newUser))
+    main.append(newUser);
+});
 
 function renderUser(userHash) {
   const div = document.createElement("div");
