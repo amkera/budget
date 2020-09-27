@@ -67,7 +67,7 @@ function createExpense(e) {
   }).then(expense => {
     renderExpense(expense)
   })
-
+  event.target.reset();
 }
 
 function renderExpense(expense) {
