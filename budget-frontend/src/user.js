@@ -7,7 +7,6 @@ class User {
   }
 }
 
-
 renderUser = (userHash) => {
   const div = document.createElement("div");
   const p = document.createElement("p");

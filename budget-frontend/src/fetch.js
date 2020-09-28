@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => loadUsers());
+
 loadUsers = () => {
   fetch(USERS_URL)
     .then(res => res.json())
