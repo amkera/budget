@@ -18,7 +18,11 @@ loadUsers = () => {
         body: JSON.stringify({name: userName})
       })
         .then(res => res.json())
-        .then(newUser => renderUser(newUser))
+        .then(newUser => {
+          // const name = newUser.name;
+          // new User(name);
+          renderUser(newUser)
+        });
         main.append(newUser);
     });
 }
