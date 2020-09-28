@@ -1,12 +1,10 @@
 class User {
   static all_users = []
-
   constructor(data) {
     this.id = data.id
     this.name = data.name
     User.all_users.push(this)
   }
-
 }
 
 function loadUsers() {
