@@ -16,8 +16,12 @@ class User {
   static addNewUserToDom(userHash) {
     addDivToDom(userHash);
   }
+
+  // totalExpenses(userHash) {
+  //   userHash.expenses.forEach(exp => {
+  //     let counter = 0;
+  //     exp.amount += counter;
+  //   })
+  // }
+
 }
-//
-// renderUser = (userHash) => {
-//
-// }

@@ -10,6 +10,9 @@ function addDivToDom(userHash) {
   const p = document.createElement("p");
   const button = document.createElement("button");
   const ul = document.createElement("p");
+  const totalExpensesDiv = document.createElement("div");
+
+  //totalExpensesDiv.innerText = `Total = ${userHash.totalExpenses(userHash)}`
   div.setAttribute("class", "card"); //class="card"
   div.setAttribute("data-id", userHash.id); //data-id="1", id of the user
   p.innerHTML = userHash.name;
@@ -21,6 +24,7 @@ function addDivToDom(userHash) {
   });
   div.appendChild(p);
   div.appendChild(button);
+  //div.appendChild(totalExpensesDiv);
   div.appendChild(ul);
   main.appendChild(div);
   userHash.expenses.forEach(expense => renderExpense(expense))
