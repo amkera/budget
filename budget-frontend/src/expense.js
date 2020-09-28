@@ -85,7 +85,6 @@ function renderExpense(expense) {
 
 function deleteExpense(e) {
   e.preventDefault();
-  //remove it from db
   const configObj = {
     method: "DELETE",
     headers: {
@@ -94,6 +93,5 @@ function deleteExpense(e) {
     }
   }
   fetch(`${EXPENSES_URL}/${e.target.dataset["expenseId"]}`, configObj)
-  //remove it from the page
   e.target.parentElement.remove();
 }
