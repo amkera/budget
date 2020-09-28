@@ -4,27 +4,16 @@ loadUsers = () => {
   fetch(USERS_URL)
     .then(res => res.json())
     .then(json => {
-      json.forEach(user => renderUser(user))
+      for (const userName of json) {
+        //let [id, name] = Object.values(userName)
+        //debugger
+        new User(userName)
+      }
+      User.all_users.forEach(user => renderUser(user))
+      //debugger
+      //renderUser(User.all_users);
     })
-    addUserForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const userName = e.target.name.value;
-      fetch(USERS_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({name: userName})
-      })
-        .then(res => res.json())
-        .then(newUser => {
-          // const name = newUser.name;
-          // new User(name);
-          renderUser(newUser)
-        });
-        main.append(newUser);
-    });
+
 }
 
 createExpense = (e) => {
@@ -43,11 +32,13 @@ createExpense = (e) => {
   }).then(resp => {
     return resp.json()
   }).then(expense => {
-    renderExpense(expense)
+    //find the user
+    let user = User.all_users.find(u => u.id === expense.user_id)
+    user.expenses.push(expense)
+    renderExpense(user.expenses[user.expenses.length -1])
   })
   event.target.reset();
 }
-
 
 deleteExpense = (e) => {
   e.preventDefault();
@@ -60,4 +51,11 @@ deleteExpense = (e) => {
   }
   fetch(`${EXPENSES_URL}/${e.target.dataset["expenseId"]}`, configObj)
   e.target.parentElement.remove();
+  // //find user, find their expenses, and then delete expense from the array
+  // let user = User.all_users.find(u => u.id === parseInt(e.target.id))
+  // //user.expenses.findIndex(ex => ex.id === e.target.dataset.expenseId)
+  // let index = user.expenses.find(ex => ex.id === parseInt(e.target.dataset.expenseId)).id
+  // user.expenses.splice(index, 1)
+  // //user.expenses.splice(user.expenses.find(u => u.id === parseInt(e.target.id)).expenses.find(ex => ex.id === parseInt(e.target.dataset.expenseId), 1)
+  // debugger
 }

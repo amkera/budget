@@ -61,6 +61,7 @@ renderExpense = (expense) => {
   li.innerHTML = `${expense.name}: $${expense.amount} `
   button.setAttribute("button", "delete")
   button.setAttribute("data-expense-id", expense.id)
+  button.setAttribute("id", expense.user_id)
   button.addEventListener("click", deleteExpense)
   //this is how JS knows what is being deleted, because the expense id is being set on the button
   button.innerHTML = "Delete"
