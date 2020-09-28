@@ -4,14 +4,11 @@ loadUsers = () => {
   fetch(USERS_URL)
     .then(res => res.json())
     .then(json => {
-      for (const userName of json) {
-        //let [id, name] = Object.values(userName)
-        //debugger
-        new User(userName)
+      for (const userObject of json) {
+        new User(userObject)
       }
-      User.all_users.forEach(user => renderUser(user))
-      //debugger
-      //renderUser(User.all_users);
+      // User.all_users.forEach(user => renderUser(user))
+      User.getUsersFromBackEnd();
     })
 }
 
@@ -29,8 +26,8 @@ addUserForm.addEventListener("submit", (e) => {
   .then(res => res.json())
   .then(newUser => {
     let newestUser = new User(newUser)
-    renderUser(newestUser)
-    main.append(newestUser)
+    User.addNewUserToDom(newestUser)
+    //main.append(newestUser)
   });
 });
 
