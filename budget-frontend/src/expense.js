@@ -10,13 +10,16 @@ class Expense {
     this.created_at = data.created_at
     Expense.all_expenses.push(this)
   }
+  // static findExpense(expenseName) {
+  //   return (this.all_expenses.find(object => {return object.name === expenseName}))
+  // }
 }
 
-function renderNewExpenseForm(event) {
+renderNewExpenseForm = (event) => {
   //this = button, or event.target
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
-  expenseForm.setAttribute('class', this.dataset.userId)
+  expenseForm.setAttribute('class', event.target.dataset.userId)
 
   const label1 = document.createElement('label')
   label1.innerText = 'Add Expense Name'
@@ -35,7 +38,7 @@ function renderNewExpenseForm(event) {
   formButton.type = 'submit'
   formButton.value = 'Add Expense'
   //formButton.setAttribute('data-user_id', event.target.dataset.userId)
-  formButton.setAttribute('id', this.dataset.userId)
+  formButton.setAttribute('id', event.target.dataset.userId)
 
   const removeFormButton = document.createElement('button');
   formButton.setAttribute('name', 'expenseSubmitButton')
@@ -45,33 +48,12 @@ function renderNewExpenseForm(event) {
   expenseForm.append(input2)
 
   expenseForm.append(formButton)
-  this.after(expenseForm);   //event.target.after(expenseForm);
+  event.target.after(expenseForm);
   expenseForm.addEventListener("submit", createExpense)
   //VERY IMPORTANT:expenseForm.addEventListener("submit"...)
 }
 
-function createExpense(e) {
-  e.preventDefault();
-  let expenseName = e.target.name.value;
-  let expenseAmount =  e.target.amount.value;
-  let users_id = e.target.className;
-
-  fetch(EXPENSES_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify({name: expenseName, amount: expenseAmount, user_id: users_id})
-  }).then(resp => {
-    return resp.json()
-  }).then(expense => {
-    renderExpense(expense)
-  })
-  event.target.reset();
-}
-
-function renderExpense(expense) {
+renderExpense = (expense) => {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
   const li = document.createElement("li")
   const li2 = document.createElement("li");
@@ -84,17 +66,4 @@ function renderExpense(expense) {
   button.innerHTML = "Delete"
   li.appendChild(button)
   ul.appendChild(li);
-}
-
-function deleteExpense(e) {
-  e.preventDefault();
-  const configObj = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    }
-  }
-  fetch(`${EXPENSES_URL}/${e.target.dataset["expenseId"]}`, configObj)
-  e.target.parentElement.remove();
 }

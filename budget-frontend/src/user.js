@@ -7,30 +7,8 @@ class User {
   }
 }
 
-function loadUsers() {
-  fetch(USERS_URL)
-    .then(res => res.json())
-    .then(json => {
-      json.forEach(user => renderUser(user))
-    })
-    addUserForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const userName = e.target.name.value;
-      fetch(USERS_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({name: userName})
-      })
-        .then(res => res.json())
-        .then(newUser => renderUser(newUser))
-        main.append(newUser);
-    });
-}
 
-function renderUser(userHash) {
+renderUser = (userHash) => {
   const div = document.createElement("div");
   const p = document.createElement("p");
   const button = document.createElement("button");
