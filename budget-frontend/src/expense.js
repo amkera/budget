@@ -52,6 +52,7 @@ function createExpense(e) {
   let expenseName = e.target.name.value;
   let expenseAmount =  e.target.amount.value;
   let users_id = e.target.className;
+
   fetch(EXPENSES_URL, {
     method: "POST",
     headers: {
