@@ -33,9 +33,9 @@ body {
     background-color: #f2e9e4;
     height: 250px;
     width: 300px;
-    box-shadow: 10px 10px grey;
+    /* box-shadow: 10px 10px grey; */
     padding: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
   }
 
   p {

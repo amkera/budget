@@ -10,9 +10,10 @@ class Expense {
 }
 
 function renderNewExpenseForm(event) {
+  //this = button, or event.target
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
-  expenseForm.setAttribute('class', event.target.dataset.userId)
+  expenseForm.setAttribute('class', this.dataset.userId)
 
   const label1 = document.createElement('label')
   label1.innerText = 'Add Expense Name'
@@ -31,23 +32,19 @@ function renderNewExpenseForm(event) {
   formButton.type = 'submit'
   formButton.value = 'Add Expense'
   //formButton.setAttribute('data-user_id', event.target.dataset.userId)
-  formButton.setAttribute('id', event.target.dataset.userId)
+  formButton.setAttribute('id', this.dataset.userId)
 
   const removeFormButton = document.createElement('button');
-  //removeFormButton.innerText = "Back"
-
   formButton.setAttribute('name', 'expenseSubmitButton')
   expenseForm.append(label1)
   expenseForm.append(input1)
-
   expenseForm.append(label2)
   expenseForm.append(input2)
 
   expenseForm.append(formButton)
-  //expenseForm.append(removeFormButton);
-  event.target.after(expenseForm);
+  this.after(expenseForm);   //event.target.after(expenseForm);
   expenseForm.addEventListener("submit", createExpense)
-  //VERY IMPORTANT FROM Z: expenseForm.addEventListener("submit"...)
+  //VERY IMPORTANT:expenseForm.addEventListener("submit"...)
 }
 
 function createExpense(e) {
