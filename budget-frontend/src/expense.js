@@ -1,4 +1,6 @@
 class Expense {
+  static all_expenses = []
+
   constructor(data) {
     this.id = data.id
     this.name = data.name
@@ -6,6 +8,7 @@ class Expense {
     this.amount = data.amount
     this.updated_at = data.updated_at
     this.created_at = data.created_at
+    Expense.all_expenses.push(this)
   }
 }
 
