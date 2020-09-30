@@ -23,20 +23,8 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    #params.permit(:name, :amount, :user_id)
     params.require(:expense).permit(:name, :amount, :user_id)
   end
 
 
 end
-
-
-# def create
-#   user = User.find(params[:user_id])
-#   expense = user.expenses.build({
-#     name: expense.name,
-#     amount: expense.amount
-#   })
-#   expense.save
-#   render json: expense
-# end
