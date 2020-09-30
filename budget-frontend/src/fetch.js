@@ -51,7 +51,6 @@ createExpense = (e) => {
   }).then(resp => {
     return resp.json()
   }).then(expense => {
-    //find the user
     let user = User.all_users.find(u => u.id === expense.user_id)
     user.expenses.push(expense)
     renderExpense(user.expenses[user.expenses.length -1]) //render the last expense using OOP

@@ -26,4 +26,4 @@ $open index.html
 Usage
 Click on Add New User to add a user to the app.
 Click on Create Expense to create an expense for the user.
-Click on Delete Expense to remove the event.
+Click on Delete Expense to remove the expense.

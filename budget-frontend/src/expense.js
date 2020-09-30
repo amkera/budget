@@ -41,9 +41,8 @@ renderNewExpenseForm = (event) => {
 
 renderExpense = (expense) => {
   const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
-  //find the div whose data-id, which is the user id, equals the .user_id of the expense 
+  //find the div whose data-id, which is the user id, equals the .user_id of the expense
   const li = document.createElement("li")
-
   const button = document.createElement("button")
   li.innerHTML = `${expense.name}: $${expense.amount} `
 
