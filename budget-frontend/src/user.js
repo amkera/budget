@@ -12,6 +12,7 @@ class User {
       addDivToDom(userHash);
     })
   }
+  //this = User class itself
 
   static addNewUserToDom(userHash) {
     addDivToDom(userHash);
