@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => loadUsers());
 
 //FETCH REQUEST 1
 loadUsers = () => {
-  fetch(USERS_URL)
+  fetch(USERS_URL) //Rails knows to go to the users controller
     .then(res => res.json())
     .then(json => {
       for (const userObject of json) {
@@ -17,6 +17,7 @@ loadUsers = () => {
 addUserForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const userName = e.target.name.value;
+  alert(`Welcome, ${e.target.name.value}`)
   fetch(USERS_URL, {
     method: "POST",
     headers: {

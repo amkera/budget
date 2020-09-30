@@ -15,7 +15,9 @@ class User {
 
   static addNewUserToDom(userHash) {
     addDivToDom(userHash);
+    welcomeUser();
   } //renders users on the DOM that are added on the front end
+
 
   // totalExpenses(userHash) {
   //   userHash.expenses.forEach(exp => {
