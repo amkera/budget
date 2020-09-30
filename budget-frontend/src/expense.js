@@ -3,7 +3,6 @@ renderNewExpenseForm = (event) => {
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
   expenseForm.setAttribute('class', event.target.dataset.userId)
-
   //adding the expense NAME
   const label1 = document.createElement('label')
   label1.innerText = 'Add Expense Name'
@@ -34,25 +33,16 @@ renderNewExpenseForm = (event) => {
 
   expenseForm.append(formButton)
   event.target.after(expenseForm);
+
+
   //after event.target, add the expenseForm
   expenseForm.addEventListener("submit", createExpense)
   //VERY IMPORTANT:expenseForm.addEventListener("submit"...)
 }
 
+//make this a function for user objects
 renderExpense = (expense) => {
-  const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
-  //find the div whose data-id, which is the user id, equals the .user_id of the expense
-  const li = document.createElement("li")
-  const button = document.createElement("button")
-  li.innerHTML = `${expense.name}: $${expense.amount} `
+  //use the users to show expenses
+  showAllExpenses();
 
-  //DELETE EXPENSE BUTTON
-  button.setAttribute("button", "delete")
-  button.setAttribute("data-expense-id", expense.id) //EXPENSE ID
-  button.setAttribute("id", expense.user_id) //USER ID
-  button.addEventListener("click", deleteExpense)
-  //this is how JS knows what is being deleted, because the expense id is being set on the button
-  button.innerHTML = "Delete"
-  li.appendChild(button)
-  ul.appendChild(li);
 }

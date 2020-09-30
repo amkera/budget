@@ -10,6 +10,7 @@ loadUsers = () => {
       }
       //User.all_users.forEach(user => renderUser(user))
       User.getUsersFromBackEnd();
+
     })
 }
 
@@ -55,7 +56,7 @@ createExpense = (e) => {
     user.expenses.push(expense)
     renderExpense(user.expenses[user.expenses.length -1]) //render the last expense using OOP
   })
-  event.target.reset();
+  e.target.reset();
 }
 
 //FETCH REQUEST 4
