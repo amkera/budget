@@ -11,12 +11,11 @@ class User {
     this.all_users.forEach(userHash => {
       addDivToDom(userHash);
     })
-  }
-  //this = User class itself
+  } //helps render the users on the page. This = User class itself
 
   static addNewUserToDom(userHash) {
     addDivToDom(userHash);
-  }
+  } //renders users on the DOM that are added on the front end
 
   // totalExpenses(userHash) {
   //   userHash.expenses.forEach(exp => {
