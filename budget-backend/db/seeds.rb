@@ -6,19 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+#Or, can do something like users_array.each {|userHash| User.create(userHash)}
 User.create(name: 'Dean Winchester')
 Expense.create(user_id: 1, name: "Rent", amount: 0)
-Expense.create(user_id: 1, name: "Mechanic Tools", amount: 1000)
-
 
 User.create(name: 'Sam Winchester')
 Expense.create(user_id: 2, name: "Meal Delivery Subscription", amount: 300)
-Expense.create(user_id: 2, name: "iPhone Bill", amount: 100)
 
 User.create(name: 'Ruby the Demon')
 Expense.create(user_id: 3, name: "Traveling from Hell", amount: 0)
-Expense.create(user_id: 3, name: "Demon Blade", amount: 2000)
 
 User.create(name: 'Crowley')
 Expense.create(user_id: 4, name: "Hell Payroll", amount: 10000)
-Expense.create(user_id: 4, name: "Hell Library Subscription", amount: 500)

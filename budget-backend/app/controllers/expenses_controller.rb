@@ -11,8 +11,12 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    expense = Expense.create(expense_params)
-    render json: expense
+    expense = Expense.new(expense_params)
+    if expense.save
+      render json: expense, status: :created, location: expense
+    else
+      render json: expense.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -23,7 +27,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:name, :amount, :user_id)
+    params.require(:expenses).permit(:name, :amount, :user_id)
   end
 
 

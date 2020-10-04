@@ -1,54 +1,47 @@
 class User {
   static all_users = []
-  constructor(data) {
-    this.id = data.id
-    this.name = data.name
-    this.expenses = data.expenses
+  //instance
+  constructor(id, name, expenses) {
+    this.id = id
+    this.name = name
+    this.expenses = expenses
     User.all_users.push(this)
   }
 
-  static getUsersFromBackEnd() {
-    this.all_users.forEach(userObj => {
-      addDivToDom(userObj);
+  static addDivToDom() {
+    this.all_users.forEach(userObject => {
+      const div = document.createElement("div");
+      const p = document.createElement("p");
+      const button = document.createElement("button");
+      const ul = document.createElement("ul")
+
+      div.class = "card";
+
+      p.innerHTML = userObject.name;
+      button.id = "createExpense"
+      button.setAttribute("data-user-id", userObject.id);
+      button.innerHTML = "Create Expense";
+      userObject.expenses.forEach(expense => {
+        ul.id = expense.user_id
+        const li = document.createElement("li")
+        li.innerHTML = `${expense.name}: $${expense.amount} `
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete Expense"
+        deleteButton.id = "deleteExpense";
+
+        deleteButton.setAttribute("button", "delete")
+        deleteButton.setAttribute("data-expense-id", expense.id) //EXPENSE ID
+        deleteButton.setAttribute("data-user-id", expense.user_id) //USER ID
+        deleteButton.addEventListener("click", deleteExpense)
+
+        li.appendChild(deleteButton);
+        ul.appendChild(li);
+      })
+      div.appendChild(p);
+      div.appendChild(button);
+      div.appendChild(ul);
+      main.appendChild(div);
     })
-  } //helps render the users on the page. This = User class itself
-
-  static addNewUserToDom(userHash) {
-    addDivToDom(userHash);
-  } //renders users on the DOM that are added on the front end
-
-  showAllExpenses() {
-    //User.all_users.forEach(user => )
-    //an array of expense hashes
-    this.expenses.forEach(expense => {
-      const ul = document.querySelector(`div[data-id="${expense.user_id}"]`);
-      //find the div whose data-id, which is the user id, equals the .user_id of the expense
-      const li = document.createElement("li")
-      const button = document.createElement("button")
-      li.innerHTML = `${expense.name}: $${expense.amount} `
-
-      //greater than or equal to the number
-
-      button.setAttribute("button", "delete")
-      button.setAttribute("data-expense-id", expense.id) //EXPENSE ID
-      button.setAttribute("id", expense.user_id) //USER ID
-      button.addEventListener("click", deleteExpense)
-      //this is how JS knows what is being deleted, because the expense id is being set on the button
-      button.innerHTML = "Delete"
-      li.appendChild(button)
-      ul.appendChild(li);
-    })
-  };
-
-
-
-
-
-  // totalExpenses(userHash) {
-  //   userHash.expenses.forEach(exp => {
-  //     let counter = 0;
-  //     exp.amount += counter;
-  //   })
-  // }
-
+  }
 }
