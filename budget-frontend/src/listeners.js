@@ -11,8 +11,8 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     postUserExpense(e);
   }
-  if (e.target.matches("deleteExpense")) {
+  if (e.target.matches("#deleteExpense")) {
     e.preventDefault();
-    deleteExpense();
+    deleteExpense(e);
   }
 })
