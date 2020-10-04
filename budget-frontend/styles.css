@@ -39,6 +39,11 @@ body {
     font-family: Helvetica;
   }
 
+  label {
+    font-size: .70em;
+
+  }
+
   li {
     font-size: .80em;
     list-style: none;
@@ -58,6 +63,7 @@ body {
     background-color: #8E9AAF;
     border-radius: 10px;
   }
+
 
   button.release {
     float: right;

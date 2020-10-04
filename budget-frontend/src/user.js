@@ -40,7 +40,7 @@ class User {
       })
       p.appendChild(button);
       div.appendChild(p);
-      //div.appendChild(button);
+
       div.appendChild(ul);
       main.appendChild(div);
     })
