@@ -5,7 +5,7 @@ body {
   }
 
   header {
-    background-color: #4caf50;
+    background-color: #EFD3D7;
     margin: 0 auto;
     height: 50px;
     text-align:center;
@@ -34,20 +34,28 @@ body {
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1.20em;
     color: black;
     font-family: Helvetica;
   }
+
   li {
-    font-size: 1.05em;
+    font-size: .80em;
     list-style: none;
     padding-right: 20px;
   }
 
   button {
-    font-size: .65em;
+    font-size: .40em;
+    color: black;
+    background-color: #CBC0D3;
+    border-radius: 10px;
+  }
+
+  button#deleteExpense {
+    font-size: .40em;
     color: #fff;
-    background-color: green;
+    background-color: #8E9AAF;
     border-radius: 10px;
   }
 

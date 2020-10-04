@@ -38,8 +38,9 @@ class User {
         li.appendChild(deleteButton);
         ul.appendChild(li);
       })
+      p.appendChild(button);
       div.appendChild(p);
-      div.appendChild(button);
+      //div.appendChild(button);
       div.appendChild(ul);
       main.appendChild(div);
     })
