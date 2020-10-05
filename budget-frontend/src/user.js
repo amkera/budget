@@ -16,7 +16,7 @@ class User {
       const ul = document.createElement("ul")
       if (userObject.expenses.length === 0) {
         ul.id = userObject.id
-      }
+      } //had to do this because if a user is brand new, they don't have expenses yet and there's no expense.user_id to grab
       div.class = "card";
       p.innerHTML = userObject.name;
       button.id = "createExpense"
@@ -45,6 +45,7 @@ class User {
   displayLatestExpenseData() {
     //this only displays the last expense because it's important to use OO
     //decided to use this because this function is always called on the last expense
+    //(or first expense if this is a brand new user)
     let latestExpense = this.expenses[this.expenses.length-1];
     //by calling expense on an object, we need exp name and exp amount
     const ul = document.getElementById(`${latestExpense.user_id}`)
@@ -57,7 +58,6 @@ class User {
     deleteButton.setAttribute("button", "delete")
     deleteButton.setAttribute("data-expense-id", latestExpense.id) //EXPENSE ID
     deleteButton.setAttribute("data-user-id", latestExpense.user_id) //USER ID
-    //debugger
     li.appendChild(deleteButton);
     ul.appendChild(li);
 
