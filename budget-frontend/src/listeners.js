@@ -10,6 +10,7 @@ document.addEventListener('click', (e) => {
   if (e.target.matches("#addExpense")) {
     e.preventDefault();
     postUserExpense(e);
+    e.target.parentElement.remove();
   }
   if (e.target.matches("#deleteExpense")) {
     e.preventDefault();

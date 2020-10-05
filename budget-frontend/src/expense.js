@@ -2,7 +2,6 @@ renderNewExpenseForm = (event) => {
   const expenseForm = document.createElement('form')
   expenseForm.setAttribute('id', 'expenseForm')
   //expenseForm.setAttribute('class', event.target.dataset.userId)
-
   const label1 = document.createElement('label')
   label1.innerText = 'Add Expense Name'
   const input1 = document.createElement('input')
@@ -17,7 +16,6 @@ renderNewExpenseForm = (event) => {
   input2.type = 'number'
   input2.min = 0
   input2.name = 'amount'
-
   //ADDING THE SUBMIT(ADD EXPENSE) BUTTON
   const formButton = document.createElement('input')
   formButton.type = 'submit'

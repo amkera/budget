@@ -34,7 +34,6 @@ function postUserExpense(e) {
   const expenseName = document.getElementById("expenseName").value
   const expenseAmount = parseInt(document.getElementById("expenseAmount").value)
   const userId = document.getElementById("expenseName").getAttribute("user-id");
-
   let data = {expenses: {"name": expenseName, "amount": expenseAmount, "user_id": parseInt(userId)}}
   fetch(EXPENSES_URL, {
     method: "POST",
@@ -63,12 +62,7 @@ function deleteExpense(e) {
   e.target.parentElement.remove();
   let userID = parseInt(e.target.dataset.userId);
   let expenseID = parseInt(e.target.dataset.expenseId)
-
   let user = User.all_users.find(u => u.id === userID);
   let expenseToBeDeleted = user.expenses.find(exp => exp.id === expenseID);
   user.expenses.splice(expenseToBeDeleted, 1);
 }
-
-
-
-//delete
