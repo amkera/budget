@@ -53,8 +53,7 @@ class User {
     //by calling expense on an object, we need exp name and exp amount
     const ul = document.getElementById(`${latestExpense.user_id}`)
     const li = document.createElement("li")
-    li.innerHTML = `${latestExpense.name}: $${latestExpense.amount} `
-
+    li.innerHTML = `${latestExpense.name}: $${latestExpense.amount}`
     const deleteButton = document.createElement("button");
 
     deleteButton.innerHTML = "Delete Expense"
@@ -62,8 +61,7 @@ class User {
     deleteButton.setAttribute("button", "delete")
     deleteButton.setAttribute("data-expense-id", latestExpense.id) //EXPENSE ID
     deleteButton.setAttribute("data-user-id", latestExpense.user_id) //USER ID
-    //deleteButton.addEventListener("click", deleteExpense)
-
+    
     li.appendChild(deleteButton);
     ul.appendChild(li);
   }
