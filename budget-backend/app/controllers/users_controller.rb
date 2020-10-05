@@ -20,21 +20,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # def update
-  #   binding.pry
-  #   user_params.each{|k,v| @user.expenses.build(name: v, amount: v, user_id: v) }
-  #   if @user.update
-  #     render json: @user
-  #   else
-  #     render json: @user.errors, status: :unprocessable_entity
-  #   end
-  # end
-
   private
 
   def user_params
     params.require(:user).permit(:name, :expenses => [:id, :name, :amount, :user_id])
   end
+  #params are coming from the URL. Strong params looks for request from /user or /expenses
+  #data that URL is sent from is specified/required. then it looks for the key value pairs
 
   def set_user
     @user = User.find(params[:id])
