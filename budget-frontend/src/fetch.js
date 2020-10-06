@@ -44,8 +44,8 @@ function postUserExpense(e) {
     body: JSON.stringify(data)
   })
   .then(resp => resp.json())
-  .then(userObject => {
-    addExpenseToUserDiv(userObject)
+  .then(expense => {
+    addExpenseToUserDiv(expense)
   })
 }
 
