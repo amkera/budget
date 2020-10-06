@@ -14,6 +14,7 @@ class User {
       const p = document.createElement("p");
       const button = document.createElement("button");
       const ul = document.createElement("ul")
+
       if (userObject.expenses.length === 0) {
         ul.id = userObject.id
       } //had to do this because if a user is brand new, they don't have expenses yet and there's no expense.user_id to grab
@@ -23,6 +24,7 @@ class User {
       button.setAttribute("data-user-id", userObject.id);
       button.innerHTML = "Create Expense";
       userObject.expenses.forEach(expense => {
+
         ul.id = expense.user_id
         const li = document.createElement("li")
         li.innerHTML = `${expense.name}: $${expense.amount} `
@@ -37,6 +39,7 @@ class User {
       })
       p.appendChild(button);
       div.appendChild(p);
+
       div.appendChild(ul);
       main.appendChild(div);
     })
