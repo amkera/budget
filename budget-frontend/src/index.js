@@ -10,3 +10,15 @@ function addExpenseToUserDiv(expense) {
   user.expenses.push(expense);
   user.displayLatestExpenseData();
 }
+
+// function search() {
+//   let searchField = document.getElementById('search-text')
+//   searchField.addEventListener("keyup", (e) => {
+//     let userInput = document.getElementById('search-text').value
+//     let filteredUsers = User.all_users.filter(user => user.name.startsWith(userInput))
+//     filteredUsers.forEach(user => {
+//
+//     })
+//   })
+//
+// }

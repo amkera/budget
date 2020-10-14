@@ -11,6 +11,8 @@ function fetchUsers() {
     });
 };
 
+search();
+
 function postUser(e) {
   const userInput = document.getElementById("input-text")
   let data = { user: {"name": userInput.value }}
